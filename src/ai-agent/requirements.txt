@@ -1,0 +1,9 @@
+# Bank of Anthos AI Agent service (FastAPI)
+
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+requests==2.32.3
+PyJWT==2.9.0
+# Vertex AI optional deps (guarded at runtime)
+google-cloud-aiplatform==1.60.0
+vertexai==1.60.0

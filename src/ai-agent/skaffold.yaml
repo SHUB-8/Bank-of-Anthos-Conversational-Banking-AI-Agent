@@ -1,0 +1,25 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: ai-agent
+build:
+  artifacts:
+    - image: ai-agent
+      context: .
+test:
+  - image: ai-agent
+    custom:
+      - command: |
+          pip install --upgrade pip
+          pip install -r requirements.txt --quiet --no-cache-dir
+          python -m compileall app.py
+        timeoutSeconds: 120
+        dependencies:
+          paths:
+            - "**/*.py"
+            - "requirements.txt"
+manifests:
+  rawYaml:
+    - ../../kubernetes-manifests/ai-agent.yaml
+deploy:
+  kubectl: {}

@@ -34,5 +34,7 @@ requires:
 - configs:
   - ledger-db
   path: src/ledger/ledger-db/skaffold.yaml
-deploy:
-  tolerateFailuresUntilDeadline: true
+- configs:
+  - ai-agent
+  path: src/ai-agent/skaffold.yaml
+
