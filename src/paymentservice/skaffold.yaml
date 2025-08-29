@@ -1,0 +1,10 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+build:
+  artifacts:
+  - image: paymentservice
+    context: .
+deploy:
+  kubectl:
+    manifests:
+    - k8s/paymentservice.yaml
